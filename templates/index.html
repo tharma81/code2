@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pattern Matching Flask App</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container{
+            background: white;
+            padding: 20px;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        textarea,input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button{
+            padding: 10px;
+            margin-top: 15px;
+            width: 100%;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Pattern Matching Web App</h2>
+
+    <form method="POST">
+
+        <label>Enter Text</label>
+
+        <textarea name="text" rows="6"></textarea>
+
+        <label>Enter Pattern</label>
+
+        <input type="text" name="pattern">
+
+        <button type="submit">Search Pattern</button>
+
+    </form>
+
+    {% if result is not none %}
+
+        <h3>Output</h3>
+
+        {% if result == -1 %}
+            <p><b>Pattern Not Found</b></p>
+        {% else %}
+            <p><b>Pattern Found at Position:</b> {{ result }}</p>
+        {% endif %}
+
+        <p><b>Text Length:</b> {{ txt_length }}</p>
+
+        <p><b>Pattern Length:</b> {{ pat_length }}</p>
+
+        <p><b>Execution Time:</b> {{ execution_time }} seconds</p>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
